@@ -1,8 +1,8 @@
 ## setup
 
 - [x] eslint/prettier setup
-- tailwind css setup
-  - global css
+- [x] tailwind css setup
+  - [x] global css
 
 ## 주요 기능 리스트
 
