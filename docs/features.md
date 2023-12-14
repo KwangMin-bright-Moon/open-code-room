@@ -1,6 +1,6 @@
 ## setup
 
-- eslint/prettier setup
+- [x] eslint/prettier setup
 - tailwind css setup
   - global css
 
