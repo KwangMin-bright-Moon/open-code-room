@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { signIn } from '@/service/signin';
 import NextAuth, { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 
@@ -23,20 +23,14 @@ const authOptions: NextAuthOptions = {
         if (!email || !password) return null;
 
         try {
-          const res = await axios.post(
-            `${process.env.BASE_URL}/auth/signin/email`,
-            {
-              email,
-              password,
-            }
-          );
+          const data = await signIn({ email, password });
 
-          if (res?.data) {
-            const { user, accessToken } = res.data.result;
+          if (data) {
+            const { user, accessToken } = data.result;
 
             return {
               id: user.id,
-              email: user.eamil,
+              email: user.email,
               accessToken,
             };
           }
